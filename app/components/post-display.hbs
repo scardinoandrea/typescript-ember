@@ -60,16 +60,18 @@
     {{#if this.showCommentForm}}
       <div class="comment-form">
         <div>
-          <label class="form-label">Your Name:</label>
+          <label for="comment-author" class="form-label">Your Name:</label>
           <Input
+            id="comment-author"
             @type="text"
             @value={{this.newCommentAuthor}}
             class="form-input"
           />
         </div>
         <div>
-          <label class="form-label">Your Comment:</label>
+          <label for="comment-body" class="form-label">Your Comment:</label>
           <Textarea
+            id="comment-body"
             @value={{this.newCommentBody}}
             rows="3"
             class="form-textarea"
