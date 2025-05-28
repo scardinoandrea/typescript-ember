@@ -1,0 +1,86 @@
+<div class="post-container">
+  <h1 class="post-title">My Awesome Ember Post</h1>
+  <p class="post-body">This is the content of the post. Ember.js is a
+    productive, battle-tested JavaScript framework for building modern web
+    applications. It includes everything you need to build rich UIs that work on
+    any device.</p>
+
+  <hr class="section-divider" />
+
+  <h2 class="reactions-heading">Reactions</h2>
+
+  <div class="reactions-list">
+    {{#each this.reactions as |reaction|}}
+      <div class="reaction-item">
+        {{#if (this.isEmojiReaction reaction)}}
+          <p class="emoji-reaction">{{reaction.detail}}</p>
+        {{else if (this.isCommentReaction reaction)}}
+          <div class="comment">
+            <p class="comment-author">{{reaction.detail.author}} says:</p>
+            <p class="comment-body">{{reaction.detail.comment}}</p>
+          </div>
+        {{/if}}
+      </div>
+    {{else}}
+      <p class="no-reactions">No reactions yet. Be the first!</p>
+    {{/each}}
+  </div>
+
+  <hr class="section-divider" />
+
+  <div class="add-reaction-section">
+    <h3 class="add-reaction-heading">Add Your Reaction</h3>
+    <div class="emoji-buttons">
+      <button
+        type="button"
+        {{on "click" (fn this.addEmojiReaction "128077")}}
+      >👍</button>
+      <button
+        type="button"
+        {{on "click" (fn this.addEmojiReaction "128525")}}
+      >😍</button>
+      <button
+        type="button"
+        {{on "click" (fn this.addEmojiReaction "128293")}}
+      >🔥</button>
+      <button
+        type="button"
+        {{on "click" (fn this.addEmojiReaction "128514")}}
+      >😂</button>
+    </div>
+
+    <button
+      type="button"
+      class="toggle-comment-form-btn"
+      {{on "click" this.toggleCommentForm}}
+    >
+      {{if this.showCommentForm "Cancel Comment" "Add Comment"}}
+    </button>
+
+    {{#if this.showCommentForm}}
+      <div class="comment-form">
+        <div>
+          <label class="form-label">Your Name:</label>
+          <Input
+            @type="text"
+            @value={{this.newCommentAuthor}}
+            class="form-input"
+          />
+        </div>
+        <div>
+          <label class="form-label">Your Comment:</label>
+          <Textarea
+            @value={{this.newCommentBody}}
+            rows="3"
+            class="form-textarea"
+          />
+        </div>
+        <button
+          type="button"
+          class="submit-comment-btn"
+          {{on "click" this.addComment}}
+        >Submit Comment</button>
+      </div>
+    {{/if}}
+  </div>
+</div>

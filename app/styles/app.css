@@ -1,1 +1,167 @@
-/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.post-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+.post-title {
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.post-body {
+  line-height: 1.6;
+  color: #555;
+}
+
+.section-divider {
+  margin: 30px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.reactions-heading,
+.add-reaction-heading {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.reactions-list {
+  /* No specific styles needed for the list itself yet, but good for structure */
+}
+
+.reaction-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.emoji-reaction {
+  font-size: 24px;
+  margin: 0;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.comment-author {
+  font-weight: bold;
+  margin: 0;
+  color: #007bff;
+}
+
+.comment-body {
+  margin: 0;
+  color: #444;
+}
+
+.no-reactions {
+  color: #777;
+}
+
+/* Add Reaction Section */
+.add-reaction-section {
+  margin-top: 20px;
+}
+
+.emoji-buttons button {
+  font-size: 20px;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.emoji-buttons button:hover {
+  background-color: #e9e9e9;
+}
+
+.emoji-buttons {
+  margin-bottom: 15px;
+}
+
+.toggle-comment-form-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.toggle-comment-form-btn:hover {
+  background-color: #0056b3;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-input,
+.form-textarea {
+  width: calc(100% - 22px); /* Account for padding and border */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+
+.form-textarea {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.submit-comment-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start; /* Align button to the left in the flex container */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.submit-comment-btn:hover {
+  background-color: #1e7e34;
+}
+
+/* Ensure Ember's input/textarea get some base styling if not already covered */
+input,
+textarea {
+  box-sizing: border-box;
+}
