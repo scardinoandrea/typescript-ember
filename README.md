@@ -25,7 +25,3 @@ Open [localhost](http://localhost:4200) in your browser to view the application.
 ## Usage
 
 Navigate to the overview page where you’ll find links to all the mini projects and examples.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
