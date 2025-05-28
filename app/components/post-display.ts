@@ -51,6 +51,16 @@ export default class PostDisplayComponent extends Component {
   };
 
   @action
+  updateNewCommentAuthor(event: Event) {
+    this.newCommentAuthor = (event.target as HTMLInputElement).value;
+  }
+
+  @action
+  updateNewCommentBody(event: Event) {
+    this.newCommentBody = (event.target as HTMLTextAreaElement).value;
+  }
+
+  @action
   toggleCommentForm() {
     this.showCommentForm = !this.showCommentForm;
     if (!this.showCommentForm) {

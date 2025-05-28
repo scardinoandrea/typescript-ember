@@ -80,21 +80,23 @@
       <div class="comment-form">
         <div>
           <label for="comment-author" class="form-label">Your Name:</label>
-          <Input
+          <input
             id="comment-author"
-            @type="text"
-            @value={{this.newCommentAuthor}}
+            type="text"
             class="form-input"
+            value={{this.newCommentAuthor}}
+            {{on "input" this.updateNewCommentAuthor}}
           />
         </div>
         <div>
           <label for="comment-body" class="form-label">Your Comment:</label>
-          <Textarea
+          <textarea
             id="comment-body"
-            @value={{this.newCommentBody}}
             rows="3"
             class="form-textarea"
-          />
+            value={{this.newCommentBody}}
+            {{on "input" this.updateNewCommentBody}}
+          ></textarea>
         </div>
         <button
           type="button"
