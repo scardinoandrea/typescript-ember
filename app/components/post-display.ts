@@ -9,12 +9,17 @@ const EMOJI_MAP = {
   '128514': '😂', // Laughing
 };
 
+type Comment = { author: string; comment: string };
+type Emoji = string;
+type ReactionDetail = Comment | Emoji;
+type Reaction = { type: string; detail: ReactionDetail };
+
 export default class PostDisplayComponent extends Component {
   @tracked newCommentAuthor = '';
   @tracked newCommentBody = '';
   @tracked showCommentForm = false;
 
-  @tracked reactions = [
+  @tracked reactions: Reaction[] = [
     {
       type: 'Comment',
       detail: { author: 'Alice', comment: 'Great post! Thanks for sharing.' },
@@ -75,5 +80,11 @@ export default class PostDisplayComponent extends Component {
       ...this.reactions,
       { type: 'Emoji', detail: EMOJI_MAP[emojiCode] },
     ];
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    PostDisplay: typeof PostDisplayComponent;
   }
 }
