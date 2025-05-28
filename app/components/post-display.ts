@@ -38,11 +38,15 @@ export default class PostDisplayComponent extends Component {
   ];
 
   // Helper functions (type guards)
-  isEmojiReaction = (reaction: (typeof this.reactions)[number]) => {
+  isEmojiReaction = (
+    reaction: Reaction,
+  ): reaction is Reaction & { detail: Emoji } => {
     return reaction.type === 'Emoji';
   };
 
-  isCommentReaction = (reaction: (typeof this.reactions)[number]) => {
+  isCommentReaction = (
+    reaction: Reaction,
+  ): reaction is Reaction & { detail: Comment } => {
     return reaction.type === 'Comment';
   };
 
