@@ -1,10 +1,15 @@
+/* General Body and Base Styles */
 body {
-  font-family: sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
   margin: 0;
   background-color: #f4f4f4;
   color: #333;
+  line-height: 1.6;
 }
 
+/* Container for the post page */
 .post-container {
   max-width: 800px;
   margin: 20px auto;
@@ -12,9 +17,28 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%); /* Standardized rgba format */
+}
+
+/* Container for the overview page (and potentially other general pages) */
+.page-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px 40px; /* Overview has slightly more horizontal padding */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
+/* Utility Styles */
+.section-divider {
+  margin: 30px 0; /* Using the original 30px margin */
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+/* Post Specific Styles */
 .post-title {
   color: #333;
   border-bottom: 1px solid #eee;
@@ -23,20 +47,15 @@ body {
 }
 
 .post-body {
-  line-height: 1.6;
+  line-height: 1.6; /* Already in body, but can be here for specificity */
   color: #555;
-}
-
-.section-divider {
-  margin: 30px 0;
-  border: 0;
-  border-top: 1px solid #eee;
 }
 
 .reactions-heading,
 .add-reaction-heading {
+  /* Shared by post page, also used as base for .projects-heading */
   color: #333;
-  margin-top: 0;
+  margin-top: 0; /* Adjusted margin-top for add-reaction-heading in its own section */
   margin-bottom: 20px;
 }
 
@@ -77,7 +96,7 @@ body {
   color: #777;
 }
 
-/* Add Reaction Section */
+/* Add Reaction Section (Post Page) */
 .add-reaction-section {
   margin-top: 20px;
 }
@@ -163,5 +182,75 @@ body {
 /* Ensure Ember's input/textarea get some base styling if not already covered */
 input,
 textarea {
-  box-sizing: border-box;
+  box-sizing: border-box; /* General rule for all inputs/textareas */
+}
+
+/* Overview Page Specific Styles */
+.overview-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-top: 20px;
+}
+
+.test-emoji {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.overview-title {
+  color: #333;
+  font-size: 2.8em;
+  font-weight: 600;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.overview-subtitle {
+  color: #555;
+  font-size: 1.3em;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.projects-heading {
+  color: #333;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  font-weight: 500;
+  text-align: left;
+}
+
+.project-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.project-list li {
+  margin-bottom: 12px;
+  font-size: 1.1em;
+}
+
+.project-list .project-link {
+  color: #007bff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  display: block;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+.project-list .project-link:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  box-shadow: 0 2px 5px rgb(0 123 255 / 30%);
 }
