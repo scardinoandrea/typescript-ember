@@ -7,7 +7,6 @@ module.exports = {
     'no-action-modifiers': true,
     'no-element-event-actions': true,
     'no-unnecessary-concat': true,
-    'sort-invocations': true,
   },
   overrides: [
     {
