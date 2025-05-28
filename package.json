@@ -21,7 +21,8 @@
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
-    "lint:js:fix": "eslint . --fix",
+    "lint:js:fix": "pnpm lint:js --fix",
+    "lint:types": "glint",
     "start": "ember serve",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\" --prefixColors auto",
     "test:ember": "ember test"
