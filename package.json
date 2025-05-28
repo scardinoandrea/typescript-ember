@@ -2,10 +2,10 @@
   "name": "typescript-ember",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for typescript-ember goes here",
+  "description": "",
   "repository": "",
   "license": "MIT",
-  "author": "",
+  "author": "Andrea Scardino <andrea.scardino.r@gmail.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
