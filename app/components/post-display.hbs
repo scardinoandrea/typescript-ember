@@ -9,13 +9,13 @@
 
   <h2 class="reactions-heading">Reactions</h2>
 
-  {{! How it will work in Javascript - Problem: some properties are missing because of the ReactionDetails union type  }}
+  {{! Option 1: Using type guards }}
   {{!-- <div class="reactions-list">
     {{#each this.reactions as |reaction|}}
       <div class="reaction-item">
-        {{#if (eq reaction.type "Emoji")}}
+        {{#if (this.isEmojiReaction reaction)}}
           <p class="emoji-reaction">{{reaction.detail}}</p>
-        {{else if (eq reaction.type "Comment")}}
+        {{else if (this.isCommentReaction reaction)}}
           <div class="comment">
             <p class="comment-author">{{reaction.detail.author}} says:</p>
             <p class="comment-body">{{reaction.detail.comment}}</p>
@@ -27,13 +27,13 @@
     {{/each}}
   </div> --}}
 
-  {{!   Using type guards (FIX) }}
+  {{! Option 2: Using discriminating unions - without template changes  }}
   <div class="reactions-list">
     {{#each this.reactions as |reaction|}}
       <div class="reaction-item">
-        {{#if (this.isEmojiReaction reaction)}}
+        {{#if (eq reaction.type "Emoji")}}
           <p class="emoji-reaction">{{reaction.detail}}</p>
-        {{else if (this.isCommentReaction reaction)}}
+        {{else if (eq reaction.type "Comment")}}
           <div class="comment">
             <p class="comment-author">{{reaction.detail.author}} says:</p>
             <p class="comment-body">{{reaction.detail.comment}}</p>

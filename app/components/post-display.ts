@@ -9,10 +9,25 @@ const EMOJI_MAP = {
   '128514': '😂', // Laughing
 };
 
-type Comment = { author: string; comment: string };
+// Option 1: Using type guards
+/* type Comment = { author: string; comment: string };
 type Emoji = string;
 type ReactionDetail = Comment | Emoji;
-type Reaction = { type: string; detail: ReactionDetail };
+type Reaction = { type: string; detail: ReactionDetail }; */
+
+// Option 2: Using discriminating unions
+type ReactionAsComment = {
+  detail: {
+    author: string;
+    comment: string;
+  };
+  type: 'Comment';
+};
+type ReactionAsEmoji = {
+  detail: string;
+  type: 'Emoji';
+};
+type Reaction = ReactionAsComment | ReactionAsEmoji;
 
 export default class PostDisplayComponent extends Component {
   @tracked newCommentAuthor = '';
@@ -37,8 +52,8 @@ export default class PostDisplayComponent extends Component {
     { type: 'Emoji', detail: EMOJI_MAP['128293'] }, // Fire emoji (🔥)
   ];
 
-  // Helper functions (type guards)
-  isEmojiReaction = (
+  // Option 1: Helper functions (type guards)
+  /*   isEmojiReaction = (
     reaction: Reaction,
   ): reaction is Reaction & { detail: Emoji } => {
     return reaction.type === 'Emoji';
@@ -48,7 +63,7 @@ export default class PostDisplayComponent extends Component {
     reaction: Reaction,
   ): reaction is Reaction & { detail: Comment } => {
     return reaction.type === 'Comment';
-  };
+  }; */
 
   @action
   updateNewCommentAuthor(event: Event) {
