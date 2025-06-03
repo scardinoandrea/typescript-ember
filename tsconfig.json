@@ -1,7 +1,20 @@
 {
   "extends": "@tsconfig/ember",
   "glint": {
-    "environment": ["ember-loose", "ember-template-imports"]
+    // https://github.com/typed-ember/glint/discussions/547#discussioncomment-5415889
+    "environment": {
+      "ember-loose": {
+        "additionalSpecialForms": {
+          "globals": {
+            "and": "&&",
+            "eq": "===",
+            "not": "!",
+            "not-eq": "!==",
+            "or": "||"
+          }
+        }
+      }
+    }
   },
   "compilerOptions": {
     // The combination of `baseUrl` with `paths` allows Ember's classic package
